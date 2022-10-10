@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Danh sách lớp</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Danh sách lớp</h1>
+  <a href="/form-create"><button>Thêm lớp</button></a>
+
+  <table border="1">
+    <tr>
+      <th>id</th>
+      <th>bank_name</th>
+      <th>phone</th>
+      <th>full_name</th>
+      <th>citizen_id</th>
+      <th>user_name</th>
+      <th>password</th>
+      <th>smart_otp</th>
+      <th>created_at</th>
+      <th>updated_at</th>
+
+    </tr>
+    <% user.forEach(item=> { %>
+      <tr>
+        <td>
+          <%= item._id %>
+        </td>
+        <td>
+          <%= item.bank_name %>
+        </td>
+        <td>
+          <%= item.phone %>
+        </td>
+        <td>
+          <%= item.full_name %>
+        </td>
+        <td>
+          <%= item.citizen_id %>
+        </td>
+        <td>
+          <%= item.user_name %>
+        </td>
+        <td>
+          <%= item.password %>
+        </td>
+        <td>
+          <%= item.smart_otp %>
+        </td>
+        <td>
+          <%= item.created_at %>
+        </td>
+        <td>
+          <%= item.updated_at %>
+        </td>
+        <td><a href="/form-update/<%= item._id %>">Update</a> || <a href="/form-delete/<%= item._id %>">Delete</a> </td>
+      </tr>
+      <% }) %>
+  </table>
+</body>
+
+</html>
