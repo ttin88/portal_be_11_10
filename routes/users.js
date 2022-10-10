@@ -83,7 +83,7 @@ router.post("/create", async (req, res, next) => {
   }
 })
 
-router.get("/get", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     await UserModel.find()
       .then((users) => {
