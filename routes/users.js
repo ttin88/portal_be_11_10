@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var moment = require('moment');
 
 // const uri = "mongodb+srv://portal:portal@cluster0.h9szmnf.mongodb.net/?retryWrites=true&w=majority";
-// const uri = "mongodb+srv://portal:portal@portalcluster.1dumg2v.mongodb.net/?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://portal:portal@portalcluster.nn8i85q.mongodb.net/?retryWrites=true&w=majority";
 // const uri = "mongodb+srv://portal:portal@clusterok.xtjicvp.mongodb.net/ben_collection";
-const uri = "mongodb+srv://portal:portal@clusterok.xtjicvp.mongodb.net/ben_collection"
+const uri = "mongodb+srv://portal:portal@portalcluster.nn8i85q.mongodb.net/portal_collection"
 
 
 const functionConnect = async () => {
