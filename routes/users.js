@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var moment = require('moment');
 
 // const uri = "mongodb+srv://portal:portal@cluster0.h9szmnf.mongodb.net/?retryWrites=true&w=majority";
-const uri = "mongodb+srv://portal:portal@portalcluster.1dumg2v.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://portal:portal@portal-cluster.cbrxhvd.mongodb.net/?retryWrites=true&w=majority";
 
 const functionConnect = async () => {
   try {
