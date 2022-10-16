@@ -3,7 +3,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var moment = require('moment');
 
-const uri = "mongodb+srv://portal:portal@cluster0.h9szmnf.mongodb.net/?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://portal:portal@cluster0.h9szmnf.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://portal:portal@portalcluster.1dumg2v.mongodb.net/?retryWrites=true&w=majority";
 
 const functionConnect = async () => {
   try {
@@ -71,15 +72,22 @@ router.post("/create", async (req, res, next) => {
     body.createdAt = moment().format('DD/MM/YYYY hh:mm:ss')
     body.updatedAt = moment().format('DD/MM/YYYY hh:mm:ss')
     await UserModel.create(body)
-      .then(() => {
-        res.status(200).json({ messages: "create success", status: "200" })
+      .then((result) => {
+        res.status(200).send(result);
+        // res.status(200).json({ messages: "create success", status: "200" })
       })
       .catch((err) => {
-        res.status(400).json({ messages: "created failure", status: "400" })
+        res.status(400).send({
+          message: err.message || "Error occurred while creating the user",
+        });
+        // res.status(400).json({ messages: "created failure", status: "400" })
       })
   } catch (error) {
     console.log('---------error----------', error);
-    res.status(400).json({ error, messages: "created failure", status: "400" })
+    res.status(400).send({
+      message: err.message || "Error occurred while creating the user",
+    });
+    // res.status(400).json({ error, messages: "created failure", status: "400" })
   }
 })
 
@@ -103,14 +111,21 @@ router.get("/", async (req, res, next) => {
           return element;
         })
 
-        res.status(200).json({ result, messages: "get data success", status: "200" })
+        res.status(200).send(result);
+        // res.status(200).json({ result, messages: "get data success", status: "200" })
       })
       .catch((err) => {
-        res.status(400).json({ messages: "get data failure", status: "400" })
+        res.status(400).send({
+          message: err.message || "get data failure",
+        });
+        // res.status(400).json({ messages: "get data failure", status: "400" })
       })
   } catch (error) {
     console.log('---------error----------', error);
-    res.status(400).json({ messages: "get data failure", status: "400" })
+    res.status(400).send({
+      message: err.message || "get data failure",
+    });
+    // res.status(400).json({ messages: "get data failure", status: "400" })
   }
 })
 
